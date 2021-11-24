@@ -136,6 +136,7 @@ pub trait LpProblem<'a>: Sized {
             .prefix(self.name())
             .suffix(".lp")
             .tempfile()?;
+        println!("\n{}\n",self.display_lp());
         write!(f, "{}", self.display_lp())?;
         f.flush()?;
         Ok(f)
